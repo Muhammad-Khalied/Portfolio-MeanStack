@@ -10,7 +10,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 The backend for this project is built using Node.js. 
 
-All backend-related files are located in the mvs1 folder. To run the backend, follow these steps:
+All backend-related files are located in the mvs1 folder.
+
+To run the backend, follow these steps:
 
 Navigate to the mvs1 folder:  cd mvs1
 
