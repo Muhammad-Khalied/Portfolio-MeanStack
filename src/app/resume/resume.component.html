@@ -1,0 +1,53 @@
+<section class="mt-5 education overflow-auto">
+    <h2 class="text-center mt-5"><span class="section-title fw-bold">Education</span></h2>
+    <div class="container mt-5">
+        <div class="row py-5 g-3">
+            @for(education of educationList; track $index){
+                <div class="col-lg-4 col-sm-6" id=`{{education._id}}`>
+                    <div [ngStyle]="{'min-height': isLogin ? '19rem' : '17rem'}"
+                    class="education-item text-sm-start text-center p-4 rounded-3 bg-secondary-subtle d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="history">
+                                <fa-icon [icon]="faCalendarWeek"></fa-icon>
+                                <span class="fw-semibold ms-1 fs-6">{{education.startDate}} - {{education.endDate}}</span>
+                            </div>
+                            <h3 class="text-primary my-2 fw-bold">{{education.title}}</h3>
+                            <p class="my-2">{{education.description}}</p>
+                            <p class="my-2 text-success fw-bold fs-5">{{education.school}}</p>
+                        </div>
+                        <div *ngIf="isLogin">
+                            <button class="btn btn-danger" (click)="deleteEducation(education._id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="mt-5 experience overflow-auto">
+    <h2 class="text-center mt-5"><span class="section-title fw-bold">Experience</span></h2>
+    <div class="container mt-5">
+        <div class="row py-5 g-3">
+            @for(experience of experienceList; track $index){
+                <div class="col-lg-4 col-sm-6" id=`{{experience._id}}`>
+                    <div [ngStyle]="{'min-height': isLogin ? '19rem' : '17rem' }"
+                    class="experience-item text-sm-start text-center p-4 rounded-3 bg-secondary-subtle d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="history">
+                                <fa-icon [icon]="faCalendarWeek"></fa-icon>
+                                <span class="fw-semibold ms-1 fs-6">{{experience.startDate}} - {{experience.endDate}}</span>
+                            </div>
+                            <h3 class="text-primary my-2 fw-bold">{{experience.title}}</h3>
+                            <p class="my-2">{{experience.description}}</p>
+                            <p class="my-2 text-success fw-bold fs-5">{{experience.company}}</p>
+                        </div>
+                        <div *ngIf="isLogin">
+                            <button class="btn btn-danger" (click)="deleteExperience(experience._id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

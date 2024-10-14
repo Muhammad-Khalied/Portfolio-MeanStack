@@ -1,0 +1,60 @@
+<section class="py-5">
+    <div class="container pt-5">
+        <div class="row py-5 g-5">
+            <div class="col-md-6 text-white">
+                <h3 class="mb-5">Get In Touch</h3>
+                <div>
+                    <form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+                        <div class="mb-3">
+                          <label class="form-label ">Name</label>
+                          <input type="text" class="form-control" formControlName="name">
+                          <span class="text-danger" *ngIf="contactForm.get('name')?.errors?.['required'] && contactForm.get('name')?.touched">
+                            Name required
+                          </span>
+                          <span class="text-danger" *ngIf="(contactForm.get('name')?.errors?.['minlength'] || contactForm.get('name')?.errors?.['maxlength'] || contactForm.get('name')?.errors?.['pattern']) && contactForm.get('name')?.touched">
+                            Name must be between 3 and 30 alphabatic characters
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label ">Email address</label>
+                          <input type="email" class="form-control" formControlName="email">
+                          <span class="text-danger" *ngIf="contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.touched">
+                           Email is required
+                          </span>
+                          <span class="text-danger" *ngIf="contactForm.get('email')?.errors?.['email'] && contactForm.get('email')?.touched">
+                            You must type a valid email address
+                          </span>
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label class="form-label ">Message</label>
+                                <textarea class="form-control" formControlName="message" style="height: 150px ; resize: none;"></textarea>
+                                <span class="text-danger" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+                                    Message must be between 10 and 500 alphabatic characters
+                                </span>
+                              </div>
+                        </div>
+                        <button type="submit" [disabled]="contactForm.invalid" class="btn btn-outline-success" >Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 text-white d-flex flex-column">
+                <h3 class="mb-5">My Contact Details</h3>
+                <div>
+                    <div>
+                        <h4 class="fs-5 text-info">Email</h4>
+                        <p>{{email}}</p>
+                    </div>
+                    <div>
+                        <h4 class="fs-5 text-info">Phone</h4>
+                        <p>{{phone}}</p>
+                    </div>
+                    <div>
+                        <h4 class="fs-5 text-info">Address</h4>
+                        <p>{{address}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

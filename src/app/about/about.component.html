@@ -1,0 +1,19 @@
+<section class="py-5">
+    <div class="container pt-5">
+        <div class="text-white row justify-content-center align-items-center pt-5 gy-5 gy-lg-0 px-lg-5 px-2">
+            <div class="col-lg-6">
+                <div class="d-flex justify-content-center">
+                    <img [src]="profileImg" alt="" class="img-fluid" style="object-fit: cover; height: 30rem;">
+                </div>
+            </div>
+            <div class="col-lg-6 d-flex flex-column gap-3">
+                <h3>About <span class="fw-bold">Me</span></h3>
+                <p>{{aboutMe}} </p>
+                <div>
+                    <button class="btn btn-outline-info me-3" routerLink="/contact">Hire me</button>
+                    <a class="btn btn-outline-light" [href]="cv" target="_blank">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
